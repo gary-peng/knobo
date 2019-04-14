@@ -166,8 +166,7 @@ void run_knob()
 
       else
       {
-        // macro for knob hold goes here
-        
+        hold = false;    
       }  
     }
   }
