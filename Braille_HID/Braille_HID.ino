@@ -148,37 +148,31 @@ void runKeys()
 {
     if (key1.fallingEdge())
     {
-//       Serial.println("1");
        bitWrite(out, 5, 1);
     }
     
     if (key2.fallingEdge())
     { 
-//      Serial.println("2");
       bitWrite(out, 4, 1);
     }
     
     if (key3.fallingEdge())
     {
-//      Serial.println("3");
       bitWrite(out, 3, 1);
     }
     
     if (key4.fallingEdge())
     {
-//      Serial.println("4");
       bitWrite(out, 2, 1);
     }
     
     if (key5.fallingEdge())
     {
-//      Serial.println("5");
       bitWrite(out, 1, 1);
     }
     
     if (key6.fallingEdge())
     {
-//      Serial.println("6");
       bitWrite(out, 0, 1);
     }
 
@@ -188,7 +182,6 @@ void runKeys()
     
     if (key7.risingEdge())
     {
-//      Serial.println("7");
       if(millis() - pressStart >= pressTime)
         Keyboard.write(KEY_TAB);
       else
@@ -197,7 +190,6 @@ void runKeys()
     
     if (key8.risingEdge())
     {
-//      Serial.println("8");
       if(millis() - pressStart >= pressTime)
         Keyboard.write(KEY_RETURN);
       else
@@ -252,8 +244,7 @@ void runKnob()
   
         Keyboard.press(KEY_LEFT_CTRL);
         Keyboard.press(KEY_RIGHT_ARROW);
-        Keyboard.release(KEY_RIGHT_A  
-        RROW);
+        Keyboard.release(KEY_RIGHT_ARROW);
         delay(100);
         Keyboard.release(KEY_LEFT_CTRL);
       }
