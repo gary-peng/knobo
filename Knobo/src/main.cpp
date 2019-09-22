@@ -23,7 +23,7 @@ Bounce key4 = Bounce(key4Pin, bounceTime);
 #define key5Pin 6
 Bounce key5 = Bounce(key5Pin, bounceTime);
 
-#define key6Pin 4 
+#define key6Pin 4
 Bounce key6 = Bounce(key6Pin, bounceTime);
 
 #define key7Pin 10
@@ -49,95 +49,95 @@ void printKeys()
     case 0b110000:
       Keyboard.write('c');
     break;
-    
+
     case 0b110100:
       Keyboard.write('d');
     break;
-    
+
     case 0b100100:
       Keyboard.write('e');
     break;
-    
+
     case 0b111000:
       Keyboard.write('f');
     break;
-    
+
     case 0b111100:
       Keyboard.write('g');
     break;
-    
+
     case 0b101100:
       Keyboard.write('h');
     break;
-    
+
     case 0b011000:
       Keyboard.write('i');
     break;
-    
+
     case 0b011100:
       Keyboard.write('j');
     break;
-    
+
     case 0b100010:
       Keyboard.write('k');
     break;
-    
+
     case 0b101010:
       Keyboard.write('l');
     break;
-    
+
     case 0b110010:
       Keyboard.write('m');
     break;
-    
+
     case 0b110110:
       Keyboard.write('n');
     break;
-    
+
     case 0b100110:
       Keyboard.write('o');
     break;
-    
+
     case 0b111010:
       Keyboard.write('p');
     break;
-    
+
     case 0b111110:
       Keyboard.write('q');
     break;
-    
+
     case 0b101110:
       Keyboard.write('r');
     break;
-    
+
     case 0b011010:
       Keyboard.write('s');
     break;
-    
+
     case 0b011110:
       Keyboard.write('t');
     break;
-    
+
     case 0b100011:
       Keyboard.write('u');
     break;
-    
+
     case 0b101011:
       Keyboard.write('v');
     break;
-    
+
     case 0b011101:
       Keyboard.write('w');
     break;
-    
+
     case 0b110011:
       Keyboard.write('x');
     break;
-    
+
     case 0b110111:
       Keyboard.write('y');
     break;
-    
+
     case 0b100111:
       Keyboard.write('z');
     break;
@@ -150,27 +150,27 @@ void runKeys()
     {
        bitWrite(out, 5, 1);
     }
-    
+
     if (key2.fallingEdge())
-    { 
+    {
       bitWrite(out, 4, 1);
     }
-    
+
     if (key3.fallingEdge())
     {
       bitWrite(out, 3, 1);
     }
-    
+
     if (key4.fallingEdge())
     {
       bitWrite(out, 2, 1);
     }
-    
+
     if (key5.fallingEdge())
     {
       bitWrite(out, 1, 1);
     }
-    
+
     if (key6.fallingEdge())
     {
       bitWrite(out, 0, 1);
@@ -178,8 +178,8 @@ void runKeys()
 
     if (key7.fallingEdge() || key8.fallingEdge())
       pressStart = millis();
-    
-    
+
+
     if (key7.risingEdge())
     {
       if(millis() - pressStart >= pressTime)
@@ -187,7 +187,7 @@ void runKeys()
       else
         Keyboard.write(32);
     }
-    
+
     if (key8.risingEdge())
     {
       if(millis() - pressStart >= pressTime)
@@ -195,12 +195,12 @@ void runKeys()
       else
         Keyboard.write(KEY_BACKSPACE);
     }
-    
-    if(key1.risingEdge() || key2.risingEdge() || key3.risingEdge() || key4.risingEdge() || key5.risingEdge() || key6.risingEdge()) 
+
+    if(key1.risingEdge() || key2.risingEdge() || key3.risingEdge() || key4.risingEdge() || key5.risingEdge() || key6.risingEdge())
     {
-      Serial.println(out, BIN); 
+      Serial.println(out, BIN);
       printKeys();
-      
+
       for(int i=0; i<6; i++)
         bitClear(out, i);
     }
@@ -217,7 +217,7 @@ bool wordSelect;
 void runKnob()
 {
   long new_position = knob.read() / 2;
-  
+
   if (new_position != old_position)
   {
     if (new_position < old_position)
@@ -241,7 +241,7 @@ void runKnob()
       if(wordSelect)
       {
 //        Keyboard.press(KEY_LEFT_ALT);
-  
+
         Keyboard.press(KEY_LEFT_CTRL);
         Keyboard.press(KEY_RIGHT_ARROW);
         Keyboard.release(KEY_RIGHT_ARROW);
@@ -252,7 +252,7 @@ void runKnob()
       else
         Keyboard.write(KEY_RIGHT_ARROW);
     }
-    
+
     old_position = new_position;
   }
 
@@ -271,7 +271,7 @@ void runKnob()
 void setup()
 {
   pinMode(ledPin, OUTPUT);
-  
+
   pinMode(key1Pin, INPUT_PULLUP);
   pinMode(key2Pin, INPUT_PULLUP);
   pinMode(key3Pin, INPUT_PULLUP);
